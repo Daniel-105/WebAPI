@@ -5,29 +5,29 @@ using System.Threading;
 
 namespace Infrastructure.Data.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<T> : IRepository<T> where T: class
     {
         private readonly ApplicationDbContext _dbContext;
-        public void Add(TEntity entity)
+        public void Add(T entity)
             
         {
             _dbContext.Add(entity);
         }
 
-        public TEntity Get(
-            Expression<Func<TEntity, bool>> filter,
+        public T Get(
+            Expression<Func<T, bool>> filter,
             string? includeProperties = null,
             bool tracked = false)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> GetAll(string? includeProperties = null)
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(T entity)
         {
             throw new NotImplementedException();
         }
