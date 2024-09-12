@@ -8,9 +8,10 @@ namespace Infrastructure.Data.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly ApplicationDbContext _dbContext;
-        public TEntity Add(TEntity entity)
+        public void Add(TEntity entity)
+            
         {
-            return _dbContext.Add(entity).Entity;
+            _dbContext.Add(entity);
         }
 
         public TEntity Get(
