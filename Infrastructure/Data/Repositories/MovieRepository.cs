@@ -16,7 +16,7 @@ namespace Infrastructure.Data.Repositories
 
         public MovieRepository(ApplicationDbContext dbContext)
         {
-            this._dbContext = dbContext;
+            _dbContext= dbContext;
         }
 
         public void Add(Movie movie)

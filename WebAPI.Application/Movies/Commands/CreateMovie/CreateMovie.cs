@@ -6,13 +6,11 @@ using WebAPI.Domain.Entities;
 
 namespace Application.Movies.Commands.CreateMovie;
 
-public class CreateMovieCommandHandler(
-    IRepository<Movie> movieRepository
-    )
+public class CreateMovieCommandHandlerMovie(IRepository<Movie> movieRepository)
 {
     private readonly IRepository<Movie> _movieRepository = movieRepository;
 
-    public Movie HandleSingleOperation()
+    public Movie CreateMovie(Movie movie)
     {
         Movie harryPotter = new()
         {
@@ -24,8 +22,9 @@ public class CreateMovieCommandHandler(
             Duration = 120,
             Url = "https://www.imdb.com/title/tt0295297/"
         };
-
-        _movieRepository.Add(harryPotter);
-        return null;
+      
+        _movieRepository.Add(movie);
+        return movie;
     }
+
 }

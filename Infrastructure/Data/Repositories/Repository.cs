@@ -9,7 +9,6 @@ namespace Infrastructure.Data.Repositories
     {
         private readonly ApplicationDbContext _dbContext;
         public void Add(T entity)
-            
         {
             _dbContext.Add(entity);
         }
