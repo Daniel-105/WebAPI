@@ -1,4 +1,5 @@
 using Application.Common.Interfaces;
+using Application.Movies.Commands.CreateMovie;
 using Infrastructure.Data;
 using Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("WebAPI")));
 builder.Services.AddScoped<ApplicationDbContextInitaliser>();
+builder.Services.AddScoped<IRepository<Movie>, MovieRepository>();
+builder.Services.AddScoped<CreateMovieCommandHandler>();
 
 
 var app = builder.Build();

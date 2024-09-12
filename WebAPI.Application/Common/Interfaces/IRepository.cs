@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<T> where T: class
     {
         // T - Category Type
-        IEnumerable<TEntity> GetAll(string? includeProperties = null);
-        TEntity Get(Expression<Func<TEntity, bool>> filter, string? includeProperties = null, bool tracked = false);
-        TEntity Add(TEntity entity);
-        void Remove(TEntity entity);
+        IEnumerable<T> GetAll(string? includeProperties = null);
+        T Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false);
+        void Add(T entity);
+        void Remove(T entity);
     }
 }
