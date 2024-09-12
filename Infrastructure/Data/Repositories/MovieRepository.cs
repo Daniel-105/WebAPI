@@ -11,15 +11,15 @@ namespace Infrastructure.Data.Repositories
 {
     public class MovieRepository : IRepository<Movie>
     {
-        private readonly IRepository<Movie> _movieRepository;
-        public MovieRepository(IRepository<Movie> movieRepository)
+        private readonly ApplicationDbContext _dbContext;
+        public MovieRepository(ApplicationDbContext dbContext)
         {
-            _movieRepository = movieRepository;
+            _dbContext= dbContext;
         }
 
         public void Add(Movie movie)
         {
-            _movieRepository.Add(movie);
+            _dbContext.Add(movie);
         }
 
         public Movie Get(Expression<Func<Movie, bool>> filter, string? includeProperties = null, bool tracked = false)
