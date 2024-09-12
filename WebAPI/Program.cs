@@ -20,7 +20,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("WebAPI")));
 builder.Services.AddScoped<ApplicationDbContextInitaliser>();
 builder.Services.AddScoped<IRepository<Movie>, MovieRepository>();
-builder.Services.AddScoped<CreateMovieCommandHandler>();
+builder.Services.AddScoped<CreateMovieCommandHandlerMovie>();
 
 
 var app = builder.Build();
